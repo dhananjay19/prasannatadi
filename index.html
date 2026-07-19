@@ -452,8 +452,8 @@
         <h2>When the Caring Goes Quiet</h2>
         <p>Medicine teaches you to keep going. It doesn't teach you what to do when the caring goes quiet — when the work that once meant everything starts to feel like something you survive.</p>
         <p>This is a book about finding the way back.</p>
-        <!-- TO ACTIVATE: replace the onsubmit demo with Formspree. Set action="https://formspree.io/f/YOUR_FORM_ID" method="POST" and remove the onsubmit handler. The name attribute below is Formspree-ready. -->
-        <form class="book-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='You\'re on the list.'; this.querySelector('button').disabled=true;">
+        <form class="book-form" data-formspree>
+          <input type="hidden" name="_subject" value="New newsletter signup — prasannatadi.com">
           <input type="email" name="email" placeholder="Your email address" required aria-label="Email address for book updates">
           <button type="submit">Join the list</button>
         </form>
@@ -476,8 +476,8 @@
         <h2>Let's talk.</h2>
         <p>Whether you're a physician looking for a coach, a leader building something better for your people, or an organizer looking for a speaker — I'd like to hear from you.</p>
       </div>
-      <!-- TO ACTIVATE: wire to Formspree. Set action="https://formspree.io/f/YOUR_FORM_ID" method="POST" and remove the onsubmit handler. The name attributes below are Formspree-ready. -->
-      <form class="contact reveal" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Message sent — thank you.'; this.querySelector('button').disabled=true;">
+      <form class="contact reveal" data-formspree>
+        <input type="hidden" name="_subject" value="New contact message — prasannatadi.com">
         <div class="form-row">
           <div class="field">
             <label for="name">Name</label>
@@ -532,6 +532,35 @@
   }, {threshold:0.15});
   reveals.forEach(el=>io.observe(el));
   dividers.forEach(el=>io.observe(el));
+
+  /* ---------- Formspree submission ---------- */
+  const FORMSPREE_ENDPOINT = "https://formspree.io/f/xpqvrwlz";
+  document.querySelectorAll('form[data-formspree]').forEach(function(form){
+    form.addEventListener('submit', async function(e){
+      e.preventDefault();
+      const btn = form.querySelector('button[type="submit"]');
+      const original = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      try{
+        const res = await fetch(FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if(res.ok){
+          btn.textContent = form.classList.contains('book-form') ? "You're on the list." : 'Message sent — thank you.';
+          form.reset();
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Something went wrong — try again';
+        }
+      } catch(err){
+        btn.disabled = false;
+        btn.textContent = 'Something went wrong — try again';
+      }
+    });
+  });
 </script>
 
 </body>
