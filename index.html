@@ -233,6 +233,10 @@
     border-left:2px solid var(--gold); padding-left:20px; margin:26px 0;
   }
   .evidence .btn-gold{margin-top:6px;}
+  .evidence .watch-link{
+    display:inline-block; margin-top:18px; color:#8FD0D6; font-size:14.5px; font-weight:600; text-decoration:none;
+  }
+  .evidence .watch-link:hover{color:var(--white);}
 
   /* ---------- book ---------- */
   .book{background:var(--ivory);}
@@ -367,6 +371,7 @@
   <!-- CREDIBILITY STRIP -->
   <section class="cred">
     <div class="wrap">
+      <!-- Confirm "100+" against your CV before relying on it publicly -->
       <div class="cred-row reveal">
         <div class="cred-item"><span class="cred-num">FAAN · FAHA</span>Fellow, American Academy of Neurology &amp; American Heart Association</div>
         <div class="cred-item"><span class="cred-num">Training</span>Fellowship-trained vascular neurologist (Pittsburgh) · Residency, Brown</div>
@@ -397,7 +402,7 @@
           <span class="mark" aria-hidden="true">✦</span>
           <h3>Coaching &amp; Programs</h3>
           <p>One-to-one and group coaching for physicians and physician leaders, plus training that helps institutions build wellbeing into how they actually operate — not as a rescue after the burnout, but as infrastructure before it. Delivered through Krivena, the company I founded.</p>
-          <a class="go" href="https://krivena.com" target="_blank" rel="noopener">Explore Krivena →</a>
+          <!-- Krivena link removed until krivena.com is live. Re-add when ready: <a class="go" href="https://krivena.com" target="_blank" rel="noopener">Explore Krivena →</a> -->
         </div>
         <div class="pillar">
           <span class="mark" aria-hidden="true">✎</span>
@@ -426,8 +431,11 @@
       </div>
       <div class="evidence-body reveal">
         <p>Results were presented at the American Conference on Physician Health and the AAN Annual Meeting, with the abstract published in <em>Neurology</em>.</p>
+        <p>In the coached group, emotional exhaustion fell significantly and severe burnout dropped by nearly a third. Physicians reported large gains in professional support, career satisfaction, and emotional health — alongside improvements in workload and reward, the systemic drivers most wellbeing programs never reach.</p>
         <p class="callout">Most wellbeing work asks physicians to be more resilient. This asks the system to be built better — and measures whether it worked.</p>
         <a class="btn btn-gold" href="https://doi.org/10.1212/WNL.0000000000204618" target="_blank" rel="noopener">Read the published abstract →</a>
+        <!-- Confirm this video is the trial presentation before launch -->
+        <a class="watch-link" href="https://www.youtube.com/watch?v=kMNKAAEzgtM" target="_blank" rel="noopener">Watch the trial presentation →</a>
       </div>
     </div>
   </section>
@@ -440,12 +448,13 @@
         <span class="bcauthor">Dr. Prasanna Tadi, MD</span>
       </div>
       <div class="book-body reveal">
-        <p class="eyebrow">Coming Soon</p>
+        <p class="eyebrow">A Forthcoming Book</p>
         <h2>When the Caring Goes Quiet</h2>
         <p>Medicine teaches you to keep going. It doesn't teach you what to do when the caring goes quiet — when the work that once meant everything starts to feel like something you survive.</p>
         <p>This is a book about finding the way back.</p>
+        <!-- TO ACTIVATE: replace the onsubmit demo with Formspree. Set action="https://formspree.io/f/YOUR_FORM_ID" method="POST" and remove the onsubmit handler. The name attribute below is Formspree-ready. -->
         <form class="book-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='You\'re on the list.'; this.querySelector('button').disabled=true;">
-          <input type="email" placeholder="Your email address" required aria-label="Email address for book updates">
+          <input type="email" name="email" placeholder="Your email address" required aria-label="Email address for book updates">
           <button type="submit">Join the list</button>
         </form>
         <p class="form-note">No spam — just word when the book is ready.</p>
@@ -467,20 +476,21 @@
         <h2>Let's talk.</h2>
         <p>Whether you're a physician looking for a coach, a leader building something better for your people, or an organizer looking for a speaker — I'd like to hear from you.</p>
       </div>
+      <!-- TO ACTIVATE: wire to Formspree. Set action="https://formspree.io/f/YOUR_FORM_ID" method="POST" and remove the onsubmit handler. The name attributes below are Formspree-ready. -->
       <form class="contact reveal" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Message sent — thank you.'; this.querySelector('button').disabled=true;">
         <div class="form-row">
           <div class="field">
             <label for="name">Name</label>
-            <input id="name" type="text" required>
+            <input id="name" name="name" type="text" required>
           </div>
           <div class="field">
             <label for="email">Email</label>
-            <input id="email" type="email" required>
+            <input id="email" name="email" type="email" required>
           </div>
         </div>
         <div class="field">
           <label for="reason">I'm reaching out about</label>
-          <select id="reason">
+          <select id="reason" name="reason">
             <option>Coaching</option>
             <option>Speaking</option>
             <option>Something else</option>
@@ -488,7 +498,7 @@
         </div>
         <div class="field">
           <label for="message">Message</label>
-          <textarea id="message" required></textarea>
+          <textarea id="message" name="message" required></textarea>
         </div>
         <button type="submit" class="btn btn-gold">Send message</button>
       </form>
@@ -501,7 +511,7 @@
   <div class="wrap footer-grid">
     <p class="copyright">© <span id="year"></span> Krsna &amp; Associates LLC.</p>
     <ul class="footer-links">
-      <li><a href="https://krivena.com" target="_blank" rel="noopener">Krivena</a></li>
+      <!-- Krivena link removed until the site is live. Verify Scholar profile is PUBLIC (open incognito) and that the TEDx link points to your TEDx talk. -->
       <li><a href="https://doi.org/10.1212/WNL.0000000000204618" target="_blank" rel="noopener">Neurology Abstract</a></li>
       <li><a href="https://www.linkedin.com/in/prasannatadimd/" target="_blank" rel="noopener">LinkedIn</a></li>
       <li><a href="https://scholar.google.com/citations?user=39F_d_oAAAAJ" target="_blank" rel="noopener">Google Scholar</a></li>
