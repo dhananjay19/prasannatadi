@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Prasanna Tadi, MD — Guiding physicians home to their purpose</title>
+<meta name="description" content="Dr. Prasanna Tadi, MD — vascular neurologist, physician coach, and author. Coaching, speaking, and evidence-based programs for physicians and the institutions that employ them.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0D2137;
+    --navy-light:#16324f;
+    --teal:#006D7A;
+    --gold:#C9952A;
+    --ivory:#F6F2EA;
+    --white:#FFFFFF;
+    --ink:#16232E;
+    --ink-soft:#4A5A68;
+    --line:rgba(13,33,55,0.12);
+    --max:1120px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--white);
+    color:var(--ink);
+    font-family:'Hanken Grotesk', sans-serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    line-height:1.1;
+    margin:0;
+    color:var(--navy);
+  }
+  p{margin:0;}
+  a{color:inherit;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 32px;}
+  .eyebrow{
+    font-size:12.5px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    font-weight:600;
+    color:var(--teal);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important; scroll-behavior:auto !important;}
+  }
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity 0.8s ease, transform 0.8s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* ---------- nav ---------- */
+  header.site{
+    position:sticky; top:0; z-index:50;
+    background:rgba(13,33,55,0.94);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .nav{
+    max-width:var(--max); margin:0 auto; padding:16px 32px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .nav .name{
+    font-family:'Fraunces', serif; color:var(--white); font-size:17px; letter-spacing:0.01em;
+    text-decoration:none;
+  }
+  .nav .name em{color:var(--gold); font-style:italic;}
+  .nav ul{list-style:none; display:flex; gap:28px; margin:0; padding:0;}
+  .nav a.link{
+    color:rgba(255,255,255,0.78); text-decoration:none; font-size:14.5px; font-weight:500;
+    transition:color 0.2s ease;
+  }
+  .nav a.link:hover{color:var(--white);}
+  .nav-toggle{display:none;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:
+      radial-gradient(1100px 480px at 82% -10%, rgba(0,109,122,0.35), transparent 60%),
+      linear-gradient(180deg, var(--navy) 0%, var(--navy-light) 100%);
+    color:var(--white);
+    padding:88px 0 96px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.15fr 0.85fr; gap:56px; align-items:center;
+  }
+  .hero .eyebrow{color:#8FD0D6;}
+  .hero h1{
+    color:var(--white);
+    font-size:clamp(34px, 4.6vw, 54px);
+    margin-top:10px;
+  }
+  .hero .role{
+    margin-top:14px; font-size:16.5px; color:rgba(255,255,255,0.82); font-weight:500;
+  }
+  .hero .tagline{
+    font-family:'Fraunces', serif; font-style:italic; font-weight:400;
+    font-size:clamp(20px,2.4vw,27px);
+    color:#EFE7D6;
+    margin-top:26px;
+    max-width:520px;
+    line-height:1.4;
+  }
+  .btn-row{display:flex; gap:16px; margin-top:38px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:14px 26px; border-radius:2px; font-size:14.5px; font-weight:600;
+    text-decoration:none; letter-spacing:0.02em;
+    transition:transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+  .btn-gold{background:var(--gold); color:var(--navy);}
+  .btn-gold:hover{transform:translateY(-2px); box-shadow:0 10px 24px rgba(201,149,42,0.35);}
+  .btn-ghost{border:1px solid rgba(255,255,255,0.35); color:var(--white);}
+  .btn-ghost:hover{border-color:var(--white); background:rgba(255,255,255,0.06);}
+
+  .hero-photo{
+    position:relative;
+    aspect-ratio:4/5;
+    border-radius:2px;
+    background:linear-gradient(155deg, #123047 0%, #0A1A2B 100%);
+    border:1px solid rgba(255,255,255,0.14);
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+  }
+  .hero-photo .frame-label{
+    position:absolute; bottom:16px; left:16px; right:16px;
+    font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase;
+    color:rgba(255,255,255,0.45); border-top:1px solid rgba(255,255,255,0.16); padding-top:10px;
+  }
+  .initials{
+    font-family:'Fraunces', serif; font-size:96px; color:rgba(255,255,255,0.14); font-weight:400;
+  }
+
+  /* ---------- pulse divider (signature element) ---------- */
+  .pulse-divider{
+    width:100%; padding:6px 0;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .pulse-divider svg{width:100%; max-width:var(--max); height:64px; display:block;}
+  .pulse-line{
+    fill:none; stroke:var(--gold); stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round;
+    stroke-dasharray:1400; stroke-dashoffset:1400;
+    transition:stroke-dashoffset 1.8s cubic-bezier(.2,.7,.2,1);
+  }
+  .pulse-divider.in .pulse-line{stroke-dashoffset:0;}
+  .pulse-divider.on-navy .pulse-line{stroke:#8FD0D6;}
+
+  /* ---------- section titling ---------- */
+  section{padding:88px 0;}
+  .section-head{max-width:640px; margin-bottom:44px;}
+  .section-head h2{font-size:clamp(26px,3vw,36px); margin-top:8px;}
+  .section-head p.lead{margin-top:14px; color:var(--ink-soft); font-size:17.5px;}
+
+  /* ---------- who i am ---------- */
+  .about .wrap{display:grid; grid-template-columns:1fr; gap:20px;}
+  .about-body{max-width:700px;}
+  .about-body p{margin-bottom:18px; font-size:18px; color:var(--ink);}
+  .about-body p:last-child{margin-bottom:0;}
+
+  /* ---------- credibility strip ---------- */
+  .cred{background:var(--ivory); padding:56px 0;}
+  .cred-row{
+    display:grid; grid-template-columns:repeat(6, 1fr); gap:0;
+  }
+  .cred-item{
+    padding:0 22px; border-left:1px solid var(--line);
+    font-size:13.5px; color:var(--navy); font-weight:500; line-height:1.5;
+  }
+  .cred-item:first-child{border-left:none; padding-left:0;}
+  .cred-item .cred-num{
+    display:block; font-family:'Fraunces', serif; font-style:italic; color:var(--gold);
+    font-size:15px; margin-bottom:6px;
+  }
+
+  /* ---------- pillars ---------- */
+  .pillars-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:2px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .pillar{
+    background:var(--white); padding:40px 34px; display:flex; flex-direction:column; gap:16px;
+    transition:background 0.25s ease;
+  }
+  .pillar:hover{background:var(--ivory);}
+  .pillar .mark{
+    width:38px; height:38px; border-radius:50%; border:1.4px solid var(--gold);
+    display:flex; align-items:center; justify-content:center; color:var(--gold);
+  }
+  .pillar h3{font-size:21px;}
+  .pillar p{color:var(--ink-soft); font-size:15.5px; flex:1;}
+  .pillar .go{
+    font-size:13.5px; font-weight:600; color:var(--teal); text-decoration:none;
+    display:inline-flex; align-items:center; gap:6px; margin-top:4px;
+  }
+  .pillar .go:hover{color:var(--navy);}
+
+  /* ---------- evidence ---------- */
+  .evidence{
+    background:linear-gradient(180deg, var(--navy) 0%, var(--navy-light) 100%);
+    color:var(--white);
+  }
+  .evidence .eyebrow{color:#8FD0D6;}
+  .evidence-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px; align-items:center;}
+  .evidence h2{color:var(--white); font-size:clamp(26px,3.2vw,38px); margin-top:10px;}
+  .evidence .stat{
+    font-family:'Fraunces', serif; font-size:clamp(56px,7vw,88px); color:var(--gold); line-height:1;
+  }
+  .evidence .stat-label{margin-top:10px; color:rgba(255,255,255,0.7); font-size:14.5px; letter-spacing:0.03em;}
+  .evidence-body p{color:rgba(255,255,255,0.86); font-size:17.5px; margin-bottom:18px;}
+  .evidence-body p.callout{
+    font-family:'Fraunces', serif; font-style:italic; font-size:20px; color:#F2E7CB;
+    border-left:2px solid var(--gold); padding-left:20px; margin:26px 0;
+  }
+  .evidence .btn-gold{margin-top:6px;}
+
+  /* ---------- book ---------- */
+  .book{background:var(--ivory);}
+  .book-grid{display:grid; grid-template-columns:0.7fr 1.3fr; gap:64px; align-items:center;}
+  .book-cover{
+    aspect-ratio:5/7.4; background:var(--navy);
+    border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center; text-align:center; padding:30px;
+    position:relative;
+  }
+  .book-cover .bctext{
+    font-family:'Fraunces', serif; font-style:italic; color:var(--white); font-size:20px; line-height:1.35;
+  }
+  .book-cover .bcauthor{
+    position:absolute; bottom:22px; left:0; right:0; font-size:11.5px; letter-spacing:0.12em;
+    text-transform:uppercase; color:rgba(255,255,255,0.55);
+  }
+  .book-body h2{font-size:clamp(26px,3vw,34px);}
+  .book-body p{margin-top:16px; font-size:17.5px; color:var(--ink-soft); max-width:560px;}
+  .book-form{display:flex; gap:10px; margin-top:28px; max-width:440px; flex-wrap:wrap;}
+  .book-form input{
+    flex:1; min-width:220px; padding:13px 16px; border:1px solid var(--line); background:var(--white);
+    font-family:'Hanken Grotesk', sans-serif; font-size:14.5px; color:var(--ink);
+  }
+  .book-form input:focus{outline:2px solid var(--teal); outline-offset:1px;}
+  .book-form button{
+    padding:13px 22px; background:var(--navy); color:var(--white); border:none; font-weight:600;
+    font-size:14px; cursor:pointer; transition:background 0.2s ease;
+  }
+  .book-form button:hover{background:var(--teal);}
+  .form-note{margin-top:10px; font-size:13px; color:var(--ink-soft);}
+
+  /* ---------- contact ---------- */
+  .contact-grid{display:grid; grid-template-columns:0.8fr 1.2fr; gap:64px;}
+  .contact-head h2{font-size:clamp(26px,3vw,34px);}
+  .contact-head p{margin-top:16px; color:var(--ink-soft); font-size:17px; max-width:400px;}
+  form.contact{display:grid; gap:18px;}
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  .field label{display:block; font-size:13px; font-weight:600; color:var(--navy); margin-bottom:7px; letter-spacing:0.02em;}
+  .field input, .field select, .field textarea{
+    width:100%; padding:13px 15px; border:1px solid var(--line); font-family:inherit; font-size:15px;
+    background:var(--white); color:var(--ink);
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{outline:2px solid var(--teal); outline-offset:1px;}
+  .field textarea{resize:vertical; min-height:120px;}
+  form.contact .btn-gold{border:none; cursor:pointer; align-self:start; margin-top:4px;}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--navy); color:rgba(255,255,255,0.65); padding:44px 0;}
+  .footer-grid{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:18px;}
+  .footer-links{display:flex; gap:26px; list-style:none; padding:0; margin:0; flex-wrap:wrap;}
+  .footer-links a{text-decoration:none; color:rgba(255,255,255,0.72); font-size:13.5px; transition:color 0.2s ease;}
+  .footer-links a:hover{color:var(--gold);}
+  .copyright{font-size:12.5px; color:rgba(255,255,255,0.42);}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:920px){
+    .hero-grid{grid-template-columns:1fr; gap:40px;}
+    .hero-photo{max-width:340px;}
+    .cred-row{grid-template-columns:repeat(3,1fr); row-gap:24px;}
+    .cred-item:nth-child(4){border-left:none;}
+    .pillars-grid{grid-template-columns:1fr;}
+    .evidence-grid{grid-template-columns:1fr; gap:36px;}
+    .book-grid{grid-template-columns:1fr; gap:36px;}
+    .book-cover{max-width:260px;}
+    .contact-grid{grid-template-columns:1fr; gap:36px;}
+  }
+  @media (max-width:720px){
+    .nav ul{display:none;}
+    section{padding:64px 0;}
+    .form-row{grid-template-columns:1fr;}
+    .wrap{padding:0 22px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <nav class="nav">
+    <a href="#top" class="name">Prasanna Tadi<em>, MD</em></a>
+    <ul>
+      <li><a class="link" href="#about">About</a></li>
+      <li><a class="link" href="#work">What I Do</a></li>
+      <li><a class="link" href="#evidence">Evidence</a></li>
+      <li><a class="link" href="#book">Book</a></li>
+      <li><a class="link" href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Vascular Neurologist · Physician Coach · Author</p>
+        <h1>Dr. Prasanna Tadi, MD</h1>
+        <p class="role">Guiding physicians home to their purpose.</p>
+        <p class="tagline">Fifteen years inside medicine's quiet crisis — and a method, studied not just felt, for finding the way back.</p>
+        <div class="btn-row">
+          <a href="#contact" class="btn btn-gold">Work with me</a>
+          <a href="#book" class="btn btn-ghost">Read the book</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <span class="initials">PT</span>
+        <span class="frame-label">Portrait placeholder — swap in your headshot</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="pulse-divider on-navy" style="background:var(--navy);">
+    <svg viewBox="0 0 1120 64" preserveAspectRatio="none" aria-hidden="true">
+      <path class="pulse-line" d="M0,32 L340,32 L370,32 L390,10 L410,54 L430,32 L470,32 L500,20 L520,44 L540,32 L1120,32" />
+    </svg>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Who I Am</p>
+        <h2>Trained to hear what medicine trains us to ignore.</h2>
+      </div>
+      <div class="about-body reveal">
+        <p>For fifteen years I've lived inside medicine's quiet crisis — first as a stroke neurologist, then as a program director watching gifted physicians burn down to the wick. I trained as a coach because the problem was never the doctors. It was that no one was guiding them back to why they started.</p>
+        <p>Today I help physicians and the institutions that employ them rebuild that connection — with a method that's been studied, not just felt.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDIBILITY STRIP -->
+  <section class="cred">
+    <div class="wrap">
+      <div class="cred-row reveal">
+        <div class="cred-item"><span class="cred-num">FAAN · FAHA</span>Fellow, American Academy of Neurology &amp; American Heart Association</div>
+        <div class="cred-item"><span class="cred-num">Training</span>Fellowship-trained vascular neurologist (Pittsburgh) · Residency, Brown</div>
+        <div class="cred-item"><span class="cred-num">ICF</span>Certified physician coach</div>
+        <div class="cred-item"><span class="cred-num">100+</span>Peer-reviewed publications</div>
+        <div class="cred-item"><span class="cred-num">1 of 16</span>AAN Live Well, Lead Well — selected from 34,000 members</div>
+        <div class="cred-item"><span class="cred-num">TEDx</span>Speaker</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="pulse-divider">
+    <svg viewBox="0 0 1120 64" preserveAspectRatio="none" aria-hidden="true">
+      <path class="pulse-line" d="M0,32 L340,32 L370,32 L390,10 L410,54 L430,32 L470,32 L500,20 L520,44 L540,32 L1120,32" />
+    </svg>
+  </div>
+
+  <!-- WHAT I DO -->
+  <section class="work" id="work">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">What I Do</p>
+        <h2>Three ways this work reaches you.</h2>
+        <p class="lead">The transformation and the outcome — never the mechanics of the method.</p>
+      </div>
+      <div class="pillars-grid reveal">
+        <div class="pillar">
+          <span class="mark" aria-hidden="true">✦</span>
+          <h3>Coaching &amp; Programs</h3>
+          <p>One-to-one and group coaching for physicians and physician leaders, plus training that helps institutions build wellbeing into how they actually operate — not as a rescue after the burnout, but as infrastructure before it. Delivered through Krivena, the company I founded.</p>
+          <a class="go" href="https://krivena.com" target="_blank" rel="noopener">Explore Krivena →</a>
+        </div>
+        <div class="pillar">
+          <span class="mark" aria-hidden="true">✎</span>
+          <h3>The Book</h3>
+          <p>When the Caring Goes Quiet — a book for every physician who has felt the quiet settle in, and for the people who lead them.</p>
+          <a class="go" href="#book">Learn more →</a>
+        </div>
+        <div class="pillar">
+          <span class="mark" aria-hidden="true">◈</span>
+          <h3>Speaking</h3>
+          <p>Keynotes and workshops on physician wellbeing, purpose, and leadership — grounded in evidence, delivered from the front lines of both neurology and coaching.</p>
+          <a class="go" href="#contact">Invite me to speak →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVIDENCE -->
+  <section class="evidence" id="evidence">
+    <div class="wrap evidence-grid">
+      <div class="reveal">
+        <p class="eyebrow">The Evidence</p>
+        <h2>The work is studied, not just believed.</h2>
+        <div class="stat">45</div>
+        <p class="stat-label">Physicians in a randomized controlled trial of peer-based coaching</p>
+      </div>
+      <div class="evidence-body reveal">
+        <p>Results were presented at the American Conference on Physician Health and the AAN Annual Meeting, with the abstract published in <em>Neurology</em>.</p>
+        <p class="callout">Most wellbeing work asks physicians to be more resilient. This asks the system to be built better — and measures whether it worked.</p>
+        <a class="btn btn-gold" href="https://doi.org/10.1212/WNL.0000000000204618" target="_blank" rel="noopener">Read the published abstract →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOK -->
+  <section class="book" id="book">
+    <div class="wrap book-grid">
+      <div class="book-cover reveal">
+        <span class="bctext">When the<br>Caring Goes<br>Quiet</span>
+        <span class="bcauthor">Dr. Prasanna Tadi, MD</span>
+      </div>
+      <div class="book-body reveal">
+        <p class="eyebrow">Coming Soon</p>
+        <h2>When the Caring Goes Quiet</h2>
+        <p>Medicine teaches you to keep going. It doesn't teach you what to do when the caring goes quiet — when the work that once meant everything starts to feel like something you survive.</p>
+        <p>This is a book about finding the way back.</p>
+        <form class="book-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='You\'re on the list.'; this.querySelector('button').disabled=true;">
+          <input type="email" placeholder="Your email address" required aria-label="Email address for book updates">
+          <button type="submit">Join the list</button>
+        </form>
+        <p class="form-note">No spam — just word when the book is ready.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="pulse-divider">
+    <svg viewBox="0 0 1120 64" preserveAspectRatio="none" aria-hidden="true">
+      <path class="pulse-line" d="M0,32 L340,32 L370,32 L390,10 L410,54 L430,32 L470,32 L500,20 L520,44 L540,32 L1120,32" />
+    </svg>
+  </div>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap contact-grid">
+      <div class="contact-head reveal">
+        <p class="eyebrow">Let's Talk</p>
+        <h2>Let's talk.</h2>
+        <p>Whether you're a physician looking for a coach, a leader building something better for your people, or an organizer looking for a speaker — I'd like to hear from you.</p>
+      </div>
+      <form class="contact reveal" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Message sent — thank you.'; this.querySelector('button').disabled=true;">
+        <div class="form-row">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" type="text" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" type="email" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="reason">I'm reaching out about</label>
+          <select id="reason">
+            <option>Coaching</option>
+            <option>Speaking</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold">Send message</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <p class="copyright">© <span id="year"></span> Krsna &amp; Associates LLC.</p>
+    <ul class="footer-links">
+      <li><a href="https://krivena.com" target="_blank" rel="noopener">Krivena</a></li>
+      <li><a href="https://doi.org/10.1212/WNL.0000000000204618" target="_blank" rel="noopener">Neurology Abstract</a></li>
+      <li><a href="https://www.linkedin.com/in/prasannatadimd/" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://scholar.google.com/citations?user=39F_d_oAAAAJ" target="_blank" rel="noopener">Google Scholar</a></li>
+      <li><a href="https://youtu.be/O3OuSoKhiP8" target="_blank" rel="noopener">TEDx Talk</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const reveals = document.querySelectorAll('.reveal');
+  const dividers = document.querySelectorAll('.pulse-divider');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold:0.15});
+  reveals.forEach(el=>io.observe(el));
+  dividers.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
